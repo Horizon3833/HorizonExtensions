@@ -19,7 +19,7 @@ function CreateDirectory {
 CreateDirectory $BinDir
 
 Write-Output Installing Extensions...
-Invoke-WebRequest $ZipUrl -OutFile $BinDir
+Invoke-WebRequest $ZipUrl -OutFile "$BinDir/Extensions.zip"
 Write-Output -ForegroundColor Green Done!
 
 Write-Output Extracting Files...
