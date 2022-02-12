@@ -1,4 +1,4 @@
-$BinDir = "$Home/Desktop/HorizonExtensions"
+$BinDir = "$Home\Desktop\HorizonExtensions"
 $ZipUrl = "https://github.com/Horizon3833/HorizonExtensions/releases/download/1.0/Extensions.zip"
 function Unzip
 {
