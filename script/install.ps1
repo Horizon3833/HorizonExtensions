@@ -36,5 +36,5 @@ else {
 
 Remove-Item "$BinDir/Extensions.zip"
 Write-Host -ForegroundColor Green Extraction Done!!!
-Write-Host The Extensions are available at $BinDir/Extensions
+Write-Host The Extensions are available at $BinDir\Extensions
 Write-Host Thank You!!!
