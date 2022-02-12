@@ -16,15 +16,25 @@ function CreateDirectory {
       }
   }
 
+
+
 CreateDirectory $BinDir
 
-Write-Output Installing Extensions...
+Write-Host Installing Extensions...
 Invoke-WebRequest $ZipUrl -OutFile "$BinDir/Extensions.zip"
-Write-Output -ForegroundColor Green Done!
+Write-Host Installation Done!
+Write-Host --------------------
+Write-Host Extracting Files...
 
-Write-Output Extracting Files...
-Unzip "$BinDir/Extensions.zip" "$BinDir/Extensions"
+if (Get-Command Expand-Archive -ErrorAction SilentlyContinue) {
+  Expand-Archive "$BinDir/Extensions.zip" -DestinationPath "$BinDir" -Force
+}
+else {
+  Add-Type -AssemblyName System.IO.Compression.FileSystem
+  [IO.Compression.ZipFile]::ExtractToDirectory("$BinDir/Extensions.zip", $BinDir)
+}
+
 Remove-Item "$BinDir/Extensions.zip"
-Write-Output -ForegroundColor Green Extraction Done!!!
-Write-Output The Extensions are available at $BinDir/Desktop/HorizonExtensions/Extensions
-Write-Output Thank You!!!
+Write-Host -ForegroundColor Green Extraction Done!!!
+Write-Host The Extensions are available at $BinDir/Desktop/HorizonExtensions/Extensions
+Write-Host Thank You!!!
