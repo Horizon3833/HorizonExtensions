@@ -22,7 +22,7 @@ CreateDirectory $BinDir
 
 Write-Host Installing Extensions...
 Invoke-WebRequest $ZipUrl -OutFile "$BinDir/Extensions.zip"
-Write-Host Installation Done!
+Write-Host -ForegroundColor Green Installation Done!
 Write-Host --------------------
 Write-Host Extracting Files...
 
@@ -36,5 +36,5 @@ else {
 
 Remove-Item "$BinDir/Extensions.zip"
 Write-Host -ForegroundColor Green Extraction Done!!!
-Write-Host The Extensions are available at $BinDir/Desktop/HorizonExtensions/Extensions
+Write-Host The Extensions are available at $BinDir/Extensions
 Write-Host Thank You!!!
