@@ -21,20 +21,20 @@ function CreateDirectory {
 CreateDirectory $BinDir
 
 Write-Host Installing Extensions...
-Invoke-WebRequest $ZipUrl -OutFile "$BinDir/Extensions.zip"
+Invoke-WebRequest $ZipUrl -OutFile "$BinDir\Extensions.zip"
 Write-Host -ForegroundColor Green Installation Done!
 Write-Host --------------------
 Write-Host Extracting Files...
 
 if (Get-Command Expand-Archive -ErrorAction SilentlyContinue) {
-  Expand-Archive "$BinDir/Extensions.zip" -DestinationPath "$BinDir" -Force
+  Expand-Archive "$BinDir\Extensions.zip" -DestinationPath "$BinDir" -Force
 }
 else {
   Add-Type -AssemblyName System.IO.Compression.FileSystem
-  [IO.Compression.ZipFile]::ExtractToDirectory("$BinDir/Extensions.zip", $BinDir)
+  [IO.Compression.ZipFile]::ExtractToDirectory("$BinDir\Extensions.zip", $BinDir)
 }
 
-Remove-Item "$BinDir/Extensions.zip"
+Remove-Item "$BinDir\Extensions.zip"
 Write-Host -ForegroundColor Green Extraction Done!!!
 Write-Host The Extensions are available at $BinDir\Extensions
 Write-Host Thank You!!!
